@@ -3,10 +3,11 @@ package ar.edu.unlu.integrador.modelo;
 import ar.edu.unlu.integrador.modelo.Dado;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class DadoColores extends Dado {
+public class DadoColores extends Dado implements Serializable {
 
     private int numeroActual;
     private Color colorActual;
@@ -18,21 +19,19 @@ public class DadoColores extends Dado {
         this.valoresDado[rojo-1] = Color.red;
         this.valoresDado[azul-1] = Color.blue;
         this.valoresDado[violeta-1] = Color.magenta;
-        this.valoresDado[amarillo-1] = Color.yellow;
+        this.valoresDado[amarillo-1] = Color.YELLOW;
 
-        Color uno = this.valoresDado[0];
-        Color dos = this.valoresDado[1];
 
-        this.valoresDado[5-1] = uno;
-        this.valoresDado[4-1] = dos;
+        this.valoresDado[5] = this.valoresDado[0];
+        this.valoresDado[4] = this.valoresDado[1];
 
         //nivelamos los valores del dado para que todos los colores tengan 9 caras en los 6 dados
 
     }
     public void tirarDado(){
         Random r = new Random();
-        int valorDado = r.nextInt(5)+1;
-        this.numeroActual = valorDado;
+        int valorDado = r.nextInt(5);
+        this.numeroActual = valorDado+1;
         this.colorActual = this.valoresDado[valorDado];
     }
 

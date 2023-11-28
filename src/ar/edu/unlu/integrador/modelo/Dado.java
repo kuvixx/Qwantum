@@ -1,8 +1,9 @@
 package ar.edu.unlu.integrador.modelo;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Dado {
+public class Dado implements Serializable {
 
     private int numeroActual;
 

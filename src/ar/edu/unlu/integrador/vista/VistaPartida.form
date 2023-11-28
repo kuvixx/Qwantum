@@ -70,7 +70,10 @@
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <foreground color="-13947600"/>
+          <opaque value="true"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="5c465" class="javax.swing.JLabel" binding="dadoBlanco">
@@ -86,7 +89,10 @@
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <foreground color="-13947600"/>
+              <opaque value="false"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="b8e23" class="javax.swing.JLabel" binding="dado4">
@@ -94,9 +100,11 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1756894"/>
+                  <background color="-13947600"/>
                   <enabled value="true"/>
+                  <font size="48"/>
                   <foreground color="-16777216"/>
+                  <opaque value="true"/>
                   <text value="4"/>
                 </properties>
               </component>
@@ -105,7 +113,9 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <font size="48"/>
                   <foreground color="-16777216"/>
+                  <opaque value="true"/>
                   <text value="5"/>
                 </properties>
               </component>
@@ -114,7 +124,9 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <font size="48"/>
                   <foreground color="-16777216"/>
+                  <opaque value="true"/>
                   <text value="6"/>
                 </properties>
               </component>
@@ -127,6 +139,8 @@
             </constraints>
             <properties>
               <background color="-13947600"/>
+              <foreground color="-13947600"/>
+              <opaque value="false"/>
             </properties>
             <border type="none"/>
             <children>
@@ -135,7 +149,9 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <font size="48"/>
                   <foreground color="-16777216"/>
+                  <opaque value="true"/>
                   <text value="1"/>
                 </properties>
               </component>
@@ -144,8 +160,10 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-393217"/>
+                  <background color="-13947600"/>
+                  <font size="48"/>
                   <foreground color="-16777216"/>
+                  <opaque value="true"/>
                   <text value="2"/>
                 </properties>
               </component>
@@ -154,7 +172,10 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <enabled value="true"/>
+                  <font size="48"/>
                   <foreground color="-16777216"/>
+                  <opaque value="true"/>
                   <text value="3"/>
                 </properties>
               </component>

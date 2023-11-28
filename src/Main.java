@@ -8,11 +8,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello world!");
+
         VistaPartida vistaPartida = new VistaPartida();
         ControladorPartida controladorPartida = new ControladorPartida(vistaPartida);
-        vistaPartida.main();
-
+        vistaPartida.mostrarMenuPrincipal();
 
 /*
         VistaGrafica.main();

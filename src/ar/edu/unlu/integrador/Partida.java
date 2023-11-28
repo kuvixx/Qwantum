@@ -1,43 +1,46 @@
 package ar.edu.unlu.integrador;
 
-import ar.edu.unlu.integrador.modelo.Dado;
-import ar.edu.unlu.integrador.modelo.DadoColores;
-import ar.edu.unlu.integrador.modelo.Jugador;
-import ar.edu.unlu.integrador.modelo.Puntaje;
+import ar.edu.unlu.integrador.modelo.*;
+import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.awt.*;
+import java.rmi.RemoteException;
 import java.util.Scanner;
 
-public class Partida {
+public class Partida extends ObservableRemoto implements IPartida {
     private  Jugador[] jugadores ;
+
+    private int indiceJugadorActual = 0;
+    private int jugadoresActuales = 0;
 
     private DadoColores[] dados = new DadoColores[6];
     private Dado dadoBlanco = new Dado();
-    private int maxJugadores;
+    final private int maxJugadores;
+    private Jugador ganador;
 
-    public void iniciarJugadores(int maxJugadores){
 
+    public Partida(int maxJugadores) {
         this.maxJugadores = maxJugadores;
-        jugadores = new Jugador[maxJugadores];
-
+        this.jugadores = new Jugador[maxJugadores];
+        inicializarDados();
     }
 
-    public boolean setJugadores(Jugador jugador) {
-        int i = 0;
-        boolean insertado = false;
-        while (jugadores[i] != null && !insertado){
-            i++;
-            if (jugadores[i] == null ){
-                jugadores[i] = jugador;
-                insertado = true;
-            }
+    public int setJugadores(Jugador jugador) throws RemoteException{
+
+        if (jugadoresActuales == maxJugadores) {
+            return -1;
         }
-        return insertado;
+        jugadores[jugadoresActuales] = jugador;
+        this.jugadoresActuales ++;
+        System.out.println(jugadoresActuales);
+
+        this.notificarObservadores(Eventos.AGREGAR_JUGADOR);
+
+        return jugadoresActuales -1;
+
     }
 
-    public void inicializarDados(){
+    private void inicializarDados(){
 
         DadoColores dado1 = new DadoColores();
         DadoColores dado2 = new DadoColores();
@@ -47,11 +50,11 @@ public class Partida {
         DadoColores dado6 = new DadoColores();
 
         dado1.cargarDado(1,2,3,4);
-        dado2.cargarDado(1,2,3,4);
-        dado3.cargarDado(2,3,4,5);
-        dado4.cargarDado(3,4,5,6);
-        dado5.cargarDado(4,5,6,1);
-        dado6.cargarDado(5,6,1,2);
+        dado2.cargarDado(2,3,4,1);
+        dado3.cargarDado(3,4,1,2);
+        dado4.cargarDado(4,1,2,3);
+        dado5.cargarDado(4,3,2,1);
+        dado6.cargarDado(1,2,3,4);
 
         this.dados[0] =dado1;
         this.dados[1] =dado2;
@@ -62,23 +65,110 @@ public class Partida {
 
     }
 
-    public DadoColores[] getDadosColores(){
+    public DadoColores[] getDadosColores() throws RemoteException{
         return this.dados;
     }
 
-    public Dado getDadoBlanco() {
+    public Dado getDadoBlanco() throws RemoteException {
         return dadoBlanco;
     }
 
-    public void tirarDados(){
+    public int getIndiceJugadorActual() throws RemoteException{
+        return indiceJugadorActual;
+    }
+
+    public void tirarDados() throws RemoteException{
         dadoBlanco.tirarDado();
-        for (int i = 0; i==dados.length;i++){
+        for (int i = 0; i<dados.length;i++){
             dados[i].tirarDado();
+            System.out.println(dados[i].getNumeroActual());
         }
+        this.notificarObservadores(Eventos.ACTUALIZAR_DADOS);
 
     }
 
-    public void nuevaPartida(){
+    @Override
+    public Jugador getJugador(int indice) throws RemoteException {
+        return jugadores[indice];
+    }
+
+    public boolean sumarPuntajes(Color color) throws RemoteException{
+        Puntaje puntaje = jugadores[indiceJugadorActual].getPuntaje();
+        int auxiliar = dadoBlanco.getNumeroActual();
+
+
+        for (int j = 0; j < dados.length; j++) {
+            DadoColores dadoAux = dados[j];
+            if(dadoAux.getColorActual().equals(color)){
+                auxiliar = auxiliar + dadoAux.getNumeroActual();
+            }
+        }
+
+
+        if ( puntaje.getUltimo(color) != 0)  {
+            if (puntaje.getUltimo(color)< 6){
+                if (puntaje.getUltimo(color) >=4){
+                    if(auxiliar < puntaje.getPuntos(color)[puntaje.getUltimo(color)-1]){
+                        puntaje.setPuntos(color, auxiliar);
+                    }else {
+                        return false;
+                    }
+                } else if (auxiliar > puntaje.getPuntos(color)[puntaje.getUltimo(color)-1]) {
+                    puntaje.setPuntos(color, auxiliar);
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }else {
+            puntaje.setPuntos(color, auxiliar);
+        }
+        return true;
+    }
+
+    public void cambiarTurno() throws RemoteException {
+        if(comprobarFinDelJuego()){
+            System.out.println("fin");
+        }else{
+            this.indiceJugadorActual ++;
+            this.indiceJugadorActual = indiceJugadorActual % this.maxJugadores;
+            this.notificarObservadores(Eventos.CAMBIAR_TURNO);
+        }
+
+
+    }
+
+    public void sumarDescarte() throws RemoteException{
+        jugadores[indiceJugadorActual].getPuntaje().addContadorErrores();
+    }
+
+
+    public boolean comprobarFinDelJuego() throws RemoteException {
+        if (this.jugadores[indiceJugadorActual].getPuntaje().comprobarFinPartida()){
+            calcularGanador();
+            this.notificarObservadores(Eventos.FIN_DEL_JUEGO);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public Jugador getGanador() throws RemoteException {
+        return ganador;
+    }
+
+    public void calcularGanador() throws RemoteException{
+        int mayorAux = 0;
+
+        for(Jugador jugador:jugadores) {
+            if (jugador.getPuntaje().calcularPuntajeFinal() > mayorAux){
+                System.out.println(jugador.getPuntaje().calcularPuntajeFinal());
+                this.ganador = jugador;
+            }
+        }
+    }
+    public void nuevaPartida() {
         Scanner scanner = new Scanner(System.in);
         //preguntar cantidad de jugadores y crear.
         int cant = 2;
@@ -86,80 +176,32 @@ public class Partida {
         System.out.println("Ingrese la cantidad de jugadores (1-6)");
         while (b) {
             cant = scanner.nextInt();
-            if(cant<1 || cant>6){
+            if (cant < 1 || cant > 6) {
                 System.out.println("Ingrese un numero valido");
-            }else{
-                b=false;
+            } else {
+                b = false;
             }
-        }
-
-
-
-
-        for(int i=0;i<=jugadores.length;i++){
-            Jugador jugadorActual = jugadores[i];
-            int repetido = 0;
-            while (repetido <2) {
-
-                System.out.println("TURNO JUGADOR: " + i + 1);
-                for (int j = 0; j==dados.length;j++){
-                    dados[j].tirarDado();
-                }
-
-
-                int amarillo = dadoBlanco.getNumeroActual();
-                int violeta = dadoBlanco.getNumeroActual();
-                int azul = dadoBlanco.getNumeroActual();
-                int rojo = dadoBlanco.getNumeroActual();
-                /*
-                for (int j = 0; j <= dados.length; j++) {
-                    DadoColores dadoAux = dados[j];
-                    switch (dadoAux.getColorActual()) {
-                        case "amarillo":
-                            amarillo = amarillo + dadoAux.getNumeroActual();
-                            break;
-                        case "violeta":
-                            violeta = violeta + dadoAux.getNumeroActual();
-                            break;
-                        case "azul":
-                            azul = azul + dadoAux.getNumeroActual();
-                            break;
-                        case "rojo":
-                            rojo = rojo + dadoAux.getNumeroActual();
-                            break;
-                    }
-                }
-                */
-
-                System.out.println("amarillo: " + amarillo);
-                System.out.println("violeta: " + violeta);
-                System.out.println("azul: " + azul);
-                System.out.println("rojo: " + rojo);
-
-                repetido ++;
-                if (repetido == 1) {
-                    System.out.println("Acepta esta tirada o desea tirar de nuevo? Y=si N=no");
-                    String yesorno = scanner.next().toLowerCase(Locale.ROOT);
-                    while (yesorno.equals("y") || yesorno.equals("n")){
-                        System.out.println("Valor incorrecto  Y=si N=no");
-                        yesorno = scanner.next().toLowerCase(Locale.ROOT);
-                    }
-                    if (yesorno.equals("n")){
-                        repetido=2;
-                    }
-                }
-            } //fin tirada
-
-            //verificacion puntaje
-            Puntaje puntajeActual = jugadorActual.getPuntaje();
-            puntajeActual.mostrarPuntajes();
-
-
-
-
         }
     }
 
 
-    
+    @Override
+    public void setValorAccion1(Integer valor) throws RemoteException {
+
+    }
+
+    @Override
+    public void setValorAccion2(Integer valor) throws RemoteException {
+
+    }
+
+    @Override
+    public Integer getAccion1() throws RemoteException {
+        return null;
+    }
+
+    @Override
+    public Integer getAccion2() throws RemoteException {
+        return null;
+    }
 }
