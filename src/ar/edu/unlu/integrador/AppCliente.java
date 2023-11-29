@@ -1,4 +1,4 @@
-package ar.edu.unlu.trabajofinal.rmi;
+package ar.edu.unlu.integrador;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;

@@ -1,0 +1,18 @@
+DETALLEs:
+Para la reutilización de dados:
+darle un estado a cada dado : usado / sin usar.
+En caso de que esté usado por la persona que los tiró, los demás participantes solo podrán agregar los colores restantes.
+Cuando una persona suma o descarta, poner en medio un metodo que notifique al controlador que los demas
+jugadores pueden reutilizar los datos, utilizando el mismo indice de jugadorActual pero en un entorno mas cerrado,
+en caso que no funcione agregar un atributo int:indice que corresponda a las personas que reutilizaron los dados.
+
+Para tirar dados especificamente sin necesidad de tirar todos:
+1° opcion: Agregar un campo de texto validado entre 0-6 y tire uno por uno dependiendo la entrada.
+2° opcion: los dados pasan de ser labels a buttons y cada uno de estos llama a un metodo
+tirarDadoEspecifico(int i) en el que valor 0 corresponde a dadoblanco y los demas valores a cada dado de color.
+
+Posteriormente se manda al controlador la info del dado a tirar:
+Dado tirarDado(int) ;
+y este llama al metodo para que tire el dado guardado.
+al terminar de tirar el dado se notifica al observador para actualizar los dados.
+se inhabilita el button correspondiente a ese dado para que no lo pueda volver a tirar mas de una vez.

@@ -39,8 +39,8 @@ public class VistaPartida implements IVistaPartida {
     private JLabel dado3;
     private JLabel dadoBlanco;
     private ControladorPartida partida;
-    private boolean state = false;
     private final JFrame frame;
+    private boolean tirado = false;
 
     private DefaultListModel<String> listModel;
 
@@ -157,10 +157,17 @@ public class VistaPartida implements IVistaPartida {
 
         @Override
         public void tirarDados() throws RemoteException {
-            this.partida.tirarDados();
-            actualizarDados();
-            sumarButton.setEnabled(true);
-            descartarButton.setEnabled(true);
+            if (!tirado) {
+                this.partida.tirarDados();
+                actualizarDados();
+                sumarButton.setEnabled(true);
+                descartarButton.setEnabled(true);
+                tirado = true;
+            }else{
+                this.partida.tirarDados();
+                actualizarDados();
+                tirarButton.setEnabled(false);
+            }
 
         }
 
@@ -234,6 +241,7 @@ public class VistaPartida implements IVistaPartida {
     @Override
     public void habilitarJugador(){
         tirarButton.setEnabled(true);
+        tirado = false;
 
     }
 

@@ -132,7 +132,37 @@ public class Puntaje implements Serializable {
     }
 
     public int calcularPuntajeFinal(){
-        return (getTotalPuntos() - this.contadorErrores*5);
+        int sumatoriaFinal = 0;
+        int[] lista2menores = new int[6];
+        for (int i = 0; i<6 ; i++){
+            int numaux = 0;
+            int[] listaux = new int[4];
+            listaux[0] = puntosAmarillo[i];
+            listaux[1] = puntosAzul[i];
+            listaux[2] = puntosRojo[i];
+            listaux[3] = puntosVioleta[i];
+            //muy feo y desprolijo pero funcional, corregir adelante
+            if (listaux[0] > listaux[1]){
+                numaux = listaux[0];
+                listaux[0] = listaux[1];
+                listaux[1] = numaux;
+            }
+            if (listaux[1] > listaux[2]){
+                numaux = listaux[1];
+                listaux[1] = listaux[2];
+                listaux[2] = numaux;
+            }
+            if (listaux[2] > listaux[3]){
+                numaux = listaux[2];
+                listaux[2] = listaux[3];
+                listaux[3] = numaux;
+            }
+            sumatoriaFinal = sumatoriaFinal + listaux[2];
+
+
+        }
+
+        return (sumatoriaFinal - this.contadorErrores*2);
     }
 
     public boolean comprobarFinPartida(){
