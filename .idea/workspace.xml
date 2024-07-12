@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0379752-fe21-4c21-8650-b2dc1d3fd08a" name="Changes" comment="Primer commit">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/LibreriaRMIMVC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detallesParaFinal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b0379752-fe21-4c21-8650-b2dc1d3fd08a" name="Changes" comment="Regular">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qwantum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Qwantum.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,20 +32,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "382",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/usuario/Documents/GitHub/Qwantum",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;382&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/usuario/Documents/GitHub/Qwantum&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ar.edu.unlu.integrador.exceptions" />
@@ -122,7 +115,20 @@
       <option name="presentableId" value="Default" />
       <updated>1698435374391</updated>
     </task>
+    <task id="LOCAL-00001" summary="Regular">
+      <option name="closed" value="true" />
+      <created>1701217176219</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701217176219</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Regular" />
+    <option name="LAST_COMMIT_MESSAGE" value="Regular" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
