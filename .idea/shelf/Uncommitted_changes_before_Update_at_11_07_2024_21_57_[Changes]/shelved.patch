@@ -1,0 +1,69 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"b0379752-fe21-4c21-8650-b2dc1d3fd08a\" name=\"Changes\" comment=\"Primer commit\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/LibreriaRMIMVC.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/detallesParaFinal.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Qwantum.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Qwantum.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2XMOEhkeGnH2Px1pF3afQR1Hgch\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH\": \"382\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"last_opened_file_path\": \"C:/Users/usuario/Documents/GitHub/Qwantum\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"ar.edu.unlu.integrador.exceptions\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Joaquin\\IdeaProjects\\tp\\Qwantum\" />\r\n      <recent name=\"C:\\Users\\Joaquin\\IdeaProjects\\tp\\Qwantum\\src\\ar\\edu\\unlu\\integrador\\vista\" />\r\n    </key>\r\n    <key name=\"ExtractSuperBase.RECENT_KEYS\">\r\n      <recent name=\"ar.edu.unlu.integrador.vista\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.ar.edu.unlu.integrador.AppCliente\">\r\n    <configuration name=\"AppCliente\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ar.edu.unlu.trabajofinal.rmi.AppCliente\" />\r\n      <module name=\"Qwantum\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ar.edu.unlu.trabajofinal.rmi.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"AppServidor\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ar.edu.unlu.integrador.AppServidor\" />\r\n      <module name=\"Qwantum\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ar.edu.unlu.integrador.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ar.edu.unlu.integrador.AppCliente\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ar.edu.unlu.integrador.AppCliente\" />\r\n      <module name=\"Qwantum\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ar.edu.unlu.integrador.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.ar.edu.unlu.integrador.AppCliente\" />\r\n        <item itemvalue=\"Application.AppCliente\" />\r\n        <item itemvalue=\"Application.AppServidor\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"b0379752-fe21-4c21-8650-b2dc1d3fd08a\" name=\"Changes\" comment=\"\" />\r\n      <created>1698435374391</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1698435374391</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.RuntimeException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,14 +5,8 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b0379752-fe21-4c21-8650-b2dc1d3fd08a" name="Changes" comment="Primer commit">
+-      <change afterPath="$PROJECT_DIR$/.idea/libraries/LibreriaRMIMVC.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/detallesParaFinal.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Qwantum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Qwantum.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -39,20 +33,20 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "382",
+-    "git-widget-placeholder": "master",
+-    "last_opened_file_path": "C:/Users/usuario/Documents/GitHub/Qwantum",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "settings.editor.selected.configurable": "preferences.pluginManager"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;382&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Joaquin/Documents/GitHub/Qwantum&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="ar.edu.unlu.integrador.exceptions" />
+@@ -108,8 +102,8 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.ar.edu.unlu.integrador.AppCliente" />
++        <item itemvalue="Application.AppServidor" />
+         <item itemvalue="Application.AppCliente" />
+-        <item itemvalue="Application.AppServidor" />
+       </list>
+     </recent_temporary>
+   </component>

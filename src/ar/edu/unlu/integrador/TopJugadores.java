@@ -17,7 +17,7 @@ public class TopJugadores  {
         return instancia;
     }
 
-    public void agregarJugadores(Object[] jugador){
+    public void agregarJugadores(Jugador jugador){
         for (int i=0 ; i <= jugadors.length; i++) {
             if (jugadors[i] == null) {
                 jugadors[i] = jugador;
