@@ -44,6 +44,9 @@ public class VistaPartida implements IVistaPartida {
 
     private DefaultListModel<String> listModel;
 
+    private DefaultListModel<String> listModel2;
+
+
 
 
     public  VistaPartida(){
@@ -56,6 +59,7 @@ public class VistaPartida implements IVistaPartida {
 
         listModel = new DefaultListModel<>();
         list2.setModel(listModel);
+        list1.setModel(listModel2);
 
 
         sumarButton.setEnabled(false);
@@ -234,6 +238,17 @@ public class VistaPartida implements IVistaPartida {
         listModel.addElement("Violeta : " + Arrays.toString(partida.devolverPuntaje().getPuntosVioleta()));
         listModel.addElement("Amarillo : " + Arrays.toString(partida.devolverPuntaje().getPuntosAmarillo()));
 
+
+
+    }
+
+    @Override
+    public void mostrarTop5()  {
+        listModel2.clear();
+
+        listModel2.addElement("NOMBRE JUGADOR: "  );
+
+        // listModel.addElement("Azul : " + Arrays.toString(partida.devolverPuntaje().getPuntosAzul()));
 
 
     }

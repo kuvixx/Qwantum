@@ -114,6 +114,9 @@ public class ControladorPartida implements IControladorRemoto {
                 case AGREGAR_JUGADOR:
                     comprobarTurnoActual();
                     break;
+                case MOSTRAR_PUNTAJE:
+                    comprobarTurnoActual();
+                    break;
                 default:
                     break;
 

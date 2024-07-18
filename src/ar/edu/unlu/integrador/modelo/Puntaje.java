@@ -6,6 +6,8 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 
 public class Puntaje implements Serializable {
+
+    private static final long serialVersionUID = 2L;
     private int[] puntosAmarillo = new int[6];
     private int ultimoAmarillo = 0;
     private int[] puntosAzul = new int[6];

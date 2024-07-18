@@ -18,6 +18,8 @@ public interface IVistaPartida {
 
     void mostrarPuntos() throws RemoteException;
 
+    void mostrarTop5() ;
+
     void habilitarJugador();
 
     void deshabilitarJugador();
