@@ -63,9 +63,6 @@ public class Puntaje implements Serializable {
             return false;
         }
     }
-    public void sumarError(){
-        this.contadorErrores ++;
-    }
 
     public int[] getPuntosAmarillo() {
         return puntosAmarillo;
@@ -122,12 +119,6 @@ public class Puntaje implements Serializable {
         }
     }
 
-    public void mostrarPuntajes(){
-        System.out.println(puntosAzul.toString());
-        System.out.println(puntosAmarillo.toString());
-        System.out.println(puntosVioleta.toString());
-        System.out.println(puntosAzul.toString());
-    }
 
     public int getTotalPuntos() {
         return totalPuntos;

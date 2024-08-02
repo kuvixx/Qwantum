@@ -19,9 +19,9 @@ public interface IVistaPartida {
 
     void mostrarPuntos() throws RemoteException;
 
-    void mostrarTop5 () ;
+    void mostrarTop5 () throws RemoteException;
 
-    void actualizarTop5(Jugador jugador);
+    //void actualizarTop5(Jugador jugador);
 
     void habilitarJugador();
 

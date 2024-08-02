@@ -1,7 +1,6 @@
 package ar.edu.unlu.integrador.vista;
 
 import ar.edu.unlu.integrador.Serializacion;
-import ar.edu.unlu.integrador.TopJugadores;
 import ar.edu.unlu.integrador.controlador.ControladorPartida;
 import ar.edu.unlu.integrador.exceptions.JugadoresLleno;
 import ar.edu.unlu.integrador.modelo.Dado;
@@ -42,8 +41,6 @@ public class VistaPartida implements IVistaPartida {
     private final JFrame frame;
     private boolean tirado = false;
 
-    private TopJugadores topJugadores;
-
     private DefaultListModel<String> listModel;
 
     private DefaultListModel<String> listModel2;
@@ -58,8 +55,6 @@ public class VistaPartida implements IVistaPartida {
 
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panelPrincipal);
-        topJugadores = Serializacion.obtenerTop();
-        System.out.println("prueba " + topJugadores.get(0).getPuntaje().getTotalPuntos());
 
         listModel = new DefaultListModel<>();
         listModel2 = new DefaultListModel<>();
@@ -121,7 +116,11 @@ public class VistaPartida implements IVistaPartida {
         puntajeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
                     mostrarTop5();
+                } catch (RemoteException ex) {
+                    throw new RuntimeException(ex);
+                }
 
             }
         });
@@ -218,10 +217,7 @@ public class VistaPartida implements IVistaPartida {
 
     @Override
     public void mostrarMensaje(String mensaje){
-        System.out.println(mensaje);
-        listModel.addElement(mensaje);
-
-
+        listModel2.addElement(mensaje);
     }
 
     public void descartarTurno() throws RemoteException {
@@ -235,12 +231,6 @@ public class VistaPartida implements IVistaPartida {
     }
 
 
-    @Override
-    public void actualizarTop5(Jugador jugador) {
-        topJugadores.agregarJugadores(jugador);
-        mostrarTop5();
-        Serializacion.guardarTop(topJugadores);
-    }
 
     @Override
     public void mostrar() {
@@ -263,10 +253,9 @@ public class VistaPartida implements IVistaPartida {
     }
 
     @Override
-    public void mostrarTop5() {
+    public void mostrarTop5() throws RemoteException {
         listModel2.clear();
-
-        listModel2.addElement(topJugadores.getJugadores() );
+        this.partida.mostrarTop();
 
         // listModel.addElement("Azul : " + Arrays.toString(partida.devolverPuntaje().getPuntosAzul()));
 

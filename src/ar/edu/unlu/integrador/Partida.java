@@ -2,7 +2,7 @@ package ar.edu.unlu.integrador;
 
 import ar.edu.unlu.integrador.modelo.*;
 import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
-
+import ar.edu.unlu.integrador.Serializacion;
 import java.awt.*;
 import java.rmi.RemoteException;
 import java.util.Scanner;
@@ -23,11 +23,17 @@ public class Partida extends ObservableRemoto implements IPartida {
     public Partida(int maxJugadores) {
         this.maxJugadores = maxJugadores;
         this.jugadores = new Jugador[maxJugadores];
+        System.out.println("1--");
+        topJugadores = Serializacion.obtenerTop();
+        System.out.println("2--");
         inicializarDados();
     }
-    public void actualizarTop5(Jugador jugador) {
+    public void actualizarTop5(Jugador jugador) throws RemoteException{
         topJugadores.agregarJugadores(jugador);
         Serializacion.guardarTop(topJugadores);
+    }
+    public String devolverTop() throws RemoteException{
+        return(topJugadores.getJugadores());
     }
 
     public int setJugadores(Jugador jugador) throws RemoteException{
@@ -154,6 +160,8 @@ public class Partida extends ObservableRemoto implements IPartida {
         if (this.jugadores[indiceJugadorActual].getPuntaje().comprobarFinPartida()){
             calcularGanador();
             // ACA PODRÍA LLAMAR A ACTUALIZAR TOP
+            actualizarTop5(ganador);
+
             this.notificarObservadores(Eventos.FIN_DEL_JUEGO);
             return true;
         }else{
@@ -170,23 +178,7 @@ public class Partida extends ObservableRemoto implements IPartida {
 
         for(Jugador jugador:jugadores) {
             if (jugador.getPuntaje().calcularPuntajeFinal() > mayorAux){
-                System.out.println(jugador.getPuntaje().calcularPuntajeFinal());
                 this.ganador = jugador;
-            }
-        }
-    }
-    public void nuevaPartida() {
-        Scanner scanner = new Scanner(System.in);
-        //preguntar cantidad de jugadores y crear.
-        int cant = 2;
-        boolean b = true;
-        System.out.println("Ingrese la cantidad de jugadores (1-6)");
-        while (b) {
-            cant = scanner.nextInt();
-            if (cant < 1 || cant > 6) {
-                System.out.println("Ingrese un numero valido");
-            } else {
-                b = false;
             }
         }
     }

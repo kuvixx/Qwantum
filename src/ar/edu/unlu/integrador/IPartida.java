@@ -15,6 +15,10 @@ public interface IPartida extends IObservableRemoto {
     Integer getAccion1() throws RemoteException;
     Integer getAccion2() throws RemoteException;
 
+    void actualizarTop5(Jugador jugador) throws RemoteException;
+
+    String devolverTop() throws RemoteException;
+
     int setJugadores(Jugador jugador) throws RemoteException;
 
     void tirarDados()throws RemoteException;

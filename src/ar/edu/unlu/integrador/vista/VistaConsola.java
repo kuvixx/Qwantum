@@ -1,7 +1,6 @@
 package ar.edu.unlu.integrador.vista;
 
 import ar.edu.unlu.integrador.Serializacion;
-import ar.edu.unlu.integrador.TopJugadores;
 import ar.edu.unlu.integrador.controlador.ControladorPartida;
 import ar.edu.unlu.integrador.exceptions.JugadoresLleno;
 import ar.edu.unlu.integrador.modelo.Dado;
@@ -28,7 +27,6 @@ public class VistaConsola implements IVistaPartida{
     private int tirado = 0;
     private boolean habilitado = true;
 
-    private TopJugadores topJugadores;
     private DefaultListModel<String> listModel;
 
 
@@ -39,8 +37,6 @@ public class VistaConsola implements IVistaPartida{
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panel1);
-        topJugadores = Serializacion.obtenerTop();
-        System.out.println("prueba " + topJugadores.get(0).getPuntaje().getTotalPuntos());
 
         listModel = new DefaultListModel<>();
         list1.setModel(listModel);
@@ -206,8 +202,7 @@ public class VistaConsola implements IVistaPartida{
 
     @Override
     public void mostrarPuntos() throws RemoteException {
-        listModel.clear();
-
+        mostrarMensaje("----------------------------");
         listModel.addElement("Azul : " + Arrays.toString(partida.devolverPuntaje().getPuntosAzul()));
         listModel.addElement("Rojo : " + Arrays.toString(partida.devolverPuntaje().getPuntosRojo()));
         listModel.addElement("Violeta : " + Arrays.toString(partida.devolverPuntaje().getPuntosVioleta()));
@@ -215,25 +210,26 @@ public class VistaConsola implements IVistaPartida{
     }
 
     @Override
-    public void mostrarTop5() {
+    public void mostrarTop5() throws RemoteException {
+
+
         listModel.clear();
-
-        listModel.addElement(topJugadores.getJugadores() );
-
+        this.partida.mostrarTop();
         listModel.addElement("0 - Mostrar menú principal");
 
         // listModel.addElement("Azul : " + Arrays.toString(partida.devolverPuntaje().getPuntosAzul()));
 
     }
+    /*
+        @Override
+        public void actualizarTop5(Jugador jugador) {
+            System.out.println("act");
+            topJugadores.agregarJugadores(jugador);
+            Serializacion.guardarTop(topJugadores);
+        }
 
-    @Override
-    public void actualizarTop5(Jugador jugador) {
-        System.out.println("act");
-        topJugadores.agregarJugadores(jugador);
-        mostrarTop5();
-        Serializacion.guardarTop(topJugadores);
-    }
 
+         */
     @Override
     public void habilitarJugador() {
         tirado = 0;
@@ -248,13 +244,17 @@ public class VistaConsola implements IVistaPartida{
 
     @Override
     public void descartarTurno() throws RemoteException {
-        partida.sumarDescarte();
-        try {
-            listModel.clear();
-            mostrarMensaje("Turno de otro jugador...");
-            partida.finTurno();
-        }catch ( RemoteException ex){
-            JOptionPane.showMessageDialog(null, "Error");
+        if (tirado>0) {
+            partida.sumarDescarte();
+            try {
+                listModel.clear();
+                mostrarMensaje("Turno de otro jugador...");
+                partida.finTurno();
+            } catch (RemoteException ex) {
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }else {
+            mostrarMensaje("Debes tirar primero para descartar");
         }
 
     }

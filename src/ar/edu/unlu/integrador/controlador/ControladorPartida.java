@@ -25,6 +25,11 @@ public class ControladorPartida implements IControladorRemoto {
 
     }
 
+    public void mostrarTop() throws RemoteException {
+
+        this.vistaPartida.mostrarMensaje(partidaActual.devolverTop());
+    }
+
     public void agregarJugador(String nombreJugador) throws JugadoresLleno, RemoteException {
         Jugador jugador = new Jugador(nombreJugador,  new Puntaje());
 
@@ -73,10 +78,6 @@ public class ControladorPartida implements IControladorRemoto {
         return this.partidaActual.getDadoBlanco();
     }
 
-    public void cambiarTurno() throws RemoteException {
-        partidaActual.cambiarTurno();
-    }
-
     public void finTurno() throws RemoteException {
         vistaPartida.deshabilitarJugador();
         partidaActual.cambiarTurno();
@@ -109,7 +110,6 @@ public class ControladorPartida implements IControladorRemoto {
                     break;
                 case FIN_DEL_JUEGO:
                     this.vistaPartida.deshabilitarJugador();
-                    this.vistaPartida.actualizarTop5(partidaActual.getGanador());
                     this.vistaPartida.mostrarMensaje("El ganador de la partida es :" + partidaActual.getGanador().getNombre() + "Con " + + partidaActual.getGanador().getPuntaje().calcularPuntajeFinal() + " Puntos"  );
                     break;
                 case AGREGAR_JUGADOR:

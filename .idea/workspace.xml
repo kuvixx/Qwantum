@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0379752-fe21-4c21-8650-b2dc1d3fd08a" name="Changes" comment="Avance 18-07">
-      <change afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaConsola.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaConsola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2024_21_57_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2024_21_57__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="b0379752-fe21-4c21-8650-b2dc1d3fd08a" name="Changes" comment="PRE ENTREGA - FALTA MOVER EL TOP AL MODELO Y SACARLO DE LA VISTA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/AppCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/IPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/IPartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/Serializacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/Serializacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/TopJugadores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/TopJugadores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/controlador/ControladorPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/controlador/ControladorPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/DadoColores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/DadoColores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/modelo/Puntaje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/IVistaPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/IVistaPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaGrafica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaConsola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/unlu/integrador/vista/VistaPartida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,13 +163,22 @@
       <option name="project" value="LOCAL" />
       <updated>1721339453077</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="PRE ENTREGA - FALTA MOVER EL TOP AL MODELO Y SACARLO DE LA VISTA">
+      <option name="closed" value="true" />
+      <created>1722571601756</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722571601756</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Regular" />
     <MESSAGE value="Avance 18-07" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avance 18-07" />
+    <MESSAGE value="PRE ENTREGA - FALTA MOVER EL TOP AL MODELO Y SACARLO DE LA VISTA" />
+    <option name="LAST_COMMIT_MESSAGE" value="PRE ENTREGA - FALTA MOVER EL TOP AL MODELO Y SACARLO DE LA VISTA" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
