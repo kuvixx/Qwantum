@@ -1,6 +1,7 @@
 package ar.edu.unlu.integrador.vista;
 
 import ar.edu.unlu.integrador.controlador.ControladorPartida;
+import ar.edu.unlu.integrador.modelo.Jugador;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -18,7 +19,9 @@ public interface IVistaPartida {
 
     void mostrarPuntos() throws RemoteException;
 
-    void mostrarTop5() ;
+    void mostrarTop5 () ;
+
+    void actualizarTop5(Jugador jugador);
 
     void habilitarJugador();
 

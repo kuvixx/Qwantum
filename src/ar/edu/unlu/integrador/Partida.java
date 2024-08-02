@@ -17,12 +17,17 @@ public class Partida extends ObservableRemoto implements IPartida {
     private Dado dadoBlanco = new Dado();
     final private int maxJugadores;
     private Jugador ganador;
+    private TopJugadores topJugadores;
 
 
     public Partida(int maxJugadores) {
         this.maxJugadores = maxJugadores;
         this.jugadores = new Jugador[maxJugadores];
         inicializarDados();
+    }
+    public void actualizarTop5(Jugador jugador) {
+        topJugadores.agregarJugadores(jugador);
+        Serializacion.guardarTop(topJugadores);
     }
 
     public int setJugadores(Jugador jugador) throws RemoteException{
@@ -124,6 +129,7 @@ public class Partida extends ObservableRemoto implements IPartida {
         }else {
             puntaje.setPuntos(color, auxiliar);
         }
+        System.out.println(color.toString());
         return true;
     }
 
@@ -147,6 +153,7 @@ public class Partida extends ObservableRemoto implements IPartida {
     public boolean comprobarFinDelJuego() throws RemoteException {
         if (this.jugadores[indiceJugadorActual].getPuntaje().comprobarFinPartida()){
             calcularGanador();
+            // ACA PODRÍA LLAMAR A ACTUALIZAR TOP
             this.notificarObservadores(Eventos.FIN_DEL_JUEGO);
             return true;
         }else{

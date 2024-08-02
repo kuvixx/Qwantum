@@ -18,6 +18,7 @@ public class ControladorPartida implements IControladorRemoto {
     private int indiceJugador;
 
 
+
     public ControladorPartida(IVistaPartida vistaPartida){
         this.vistaPartida = vistaPartida;
         vistaPartida.inicializarPartida(this);
@@ -61,7 +62,6 @@ public class ControladorPartida implements IControladorRemoto {
     }
 
     public boolean sumarPuntaje(Color color) throws RemoteException {
-
 
         boolean b = partidaActual.sumarPuntajes(color);
         vistaPartida.mostrarPuntos();
@@ -108,13 +108,11 @@ public class ControladorPartida implements IControladorRemoto {
                     comprobarTurnoActual();
                     break;
                 case FIN_DEL_JUEGO:
-                    this.vistaPartida.mostrarMensaje("El ganador de la partida es :" + partidaActual.getGanador().getNombre() + "Con " + + partidaActual.getGanador().getPuntaje().calcularPuntajeFinal() + " Puntos"  );
                     this.vistaPartida.deshabilitarJugador();
+                    this.vistaPartida.actualizarTop5(partidaActual.getGanador());
+                    this.vistaPartida.mostrarMensaje("El ganador de la partida es :" + partidaActual.getGanador().getNombre() + "Con " + + partidaActual.getGanador().getPuntaje().calcularPuntajeFinal() + " Puntos"  );
                     break;
                 case AGREGAR_JUGADOR:
-                    comprobarTurnoActual();
-                    break;
-                case MOSTRAR_PUNTAJE:
                     comprobarTurnoActual();
                     break;
                 default:

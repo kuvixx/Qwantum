@@ -29,12 +29,12 @@ public class VistaGrafica {
         });
 
 
-        TOP5Button.addActionListener(new ActionListener() {
+       /* TOP5Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, TopJugadores.getJugadores());
+                JOptionPane.showMessageDialog(null, topJugadores.getJugadores());
             }
-        });
+        });*/
     }
 
     public static void main() {

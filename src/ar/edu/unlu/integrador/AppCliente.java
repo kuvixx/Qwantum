@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import ar.edu.unlu.integrador.controlador.ControladorPartida;
+import ar.edu.unlu.integrador.vista.IVistaPartida;
+import ar.edu.unlu.integrador.vista.VistaConsola;
 import ar.edu.unlu.integrador.vista.VistaPartida;
 import ar.edu.unlu.rmimvc.RMIMVCException;
 import ar.edu.unlu.rmimvc.Util;
@@ -49,20 +51,42 @@ public class AppCliente {
                 null,
                 8888
         );
+        String[] vistas = {"Gráfica","Consola"};
+        String vista = (String) JOptionPane.showInputDialog(
+                null,
+                "Seleccione la vista que utilizará", "Vista a utilizar",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                vistas,
+                vistas[0]
+        );
 
-        VistaPartida vistaPartida = new VistaPartida();
-        ControladorPartida controladorPartida = new ControladorPartida(vistaPartida);
-        Cliente c = new Cliente(ip, Integer.parseInt(port), ipServidor, Integer.parseInt(portServidor));
 
-        //VistaGrafica vista = new VistaGrafica(controlador);
-
-        try {
-            c.iniciar(controladorPartida);
-            vistaPartida.mostrarMenuPrincipal();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        } catch (RMIMVCException e) {
-            e.printStackTrace();
+        if (vista == "Consola"){
+            IVistaPartida vistaPartida = new VistaConsola();
+            ControladorPartida controladorPartida = new ControladorPartida(vistaPartida);
+            Cliente c = new Cliente(ip, Integer.parseInt(port), ipServidor, Integer.parseInt(portServidor));
+            try {
+                c.iniciar(controladorPartida);
+                vistaPartida.mostrarMenuPrincipal();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (RMIMVCException e) {
+                e.printStackTrace();
+            }
+        }else {
+            IVistaPartida vistaPartida = new VistaPartida();
+            ControladorPartida controladorPartida = new ControladorPartida(vistaPartida);
+            Cliente c = new Cliente(ip, Integer.parseInt(port), ipServidor, Integer.parseInt(portServidor));
+            try {
+                c.iniciar(controladorPartida);
+                vistaPartida.mostrarMenuPrincipal();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (RMIMVCException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 }

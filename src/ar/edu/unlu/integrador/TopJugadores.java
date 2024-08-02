@@ -2,7 +2,9 @@ package ar.edu.unlu.integrador;
 
 import ar.edu.unlu.integrador.modelo.Jugador;
 
-public class TopJugadores  {
+import java.io.Serializable;
+
+public class TopJugadores implements Serializable {
 
     private static Jugador[] jugadors = new Jugador[5];
 
@@ -18,18 +20,30 @@ public class TopJugadores  {
     }
 
     public void agregarJugadores(Jugador jugador){
-        for (int i=0 ; i <= jugadors.length; i++) {
-            if (jugadors[i] == null) {
-                jugadors[i] = jugador;
-            } else {
-                if (jugadors[i].getPuntaje().getTotalPuntos() < jugador.getPuntaje().getTotalPuntos()) {
-                    for (int j = i; j <= jugadors.length; j++) {
-                        Jugador jugadoraux = jugadors[i];
-                        jugadors[i] = jugador;
-                        jugador = jugadoraux;
+        System.out.println("size" + size);
+        System.out.println("lengt: "+ jugadors.length);
 
-                    }
+
+        if (size == 0){
+            jugadors[0] = jugador;
+            size ++;
+        }else {
+            for (int i = 0; i <= jugadors.length; i++) {
+                if (jugadors[i] == null) {
+
+                    System.out.println("?");
+
+                    jugadors[i] = jugador;
+                    size ++;
                     break;
+                } else {
+                    if (jugadors[i].getPuntaje().getTotalPuntos() < jugador.getPuntaje().getTotalPuntos()) {
+
+                        System.out.println("??");
+                            Jugador jugadoraux = jugadors[i];
+                            jugadors[i] = jugador;
+                            agregarJugadores(jugadoraux);
+                    }
                 }
             }
         }
@@ -39,11 +53,11 @@ public class TopJugadores  {
         return jugadors;
     }
 
-    public static Jugador get(int i) {
+    public Jugador get(int i) {
         return jugadors[i];
     }
 
-    public static int getSize() {
+    public int getSize() {
         return size;
     }
 
@@ -51,8 +65,20 @@ public class TopJugadores  {
         TopJugadores.size = jugadors.length;
     }
 
-    public static String getJugadores(){
-        return ("Hola");
+    public  String getJugadores(){
+        String aux = "";
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                Jugador jugadorActual = jugadors[i];
+                System.out.println(i+ "getjuga");
+                aux =  aux + jugadorActual.getNombre() +" : " +jugadorActual.getPuntaje().getTotalPuntos()+". -"+ "\n";
+
+            }
+            System.out.println(aux);
+        }else{
+            aux = "No hay jugadores guardados";
+        }
+        return (aux);
     }
 
 

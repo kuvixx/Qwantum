@@ -42,4 +42,17 @@ public class DadoColores extends Dado implements Serializable {
     public Color getColorActual() {
         return colorActual;
     }
+    public String getTextColor(){
+        String aux = "";
+        if (colorActual.equals(Color.blue)) {
+            aux = "azul";
+        } else if (colorActual.equals(Color.YELLOW)) {
+            aux = "amarillo";
+        } else if (colorActual.equals(Color.magenta)) {
+            aux = "violeta";
+        } else if (colorActual.equals(Color.red)) {
+            aux = "rojo";
+        }
+        return aux;
+    }
 }

@@ -1,15 +1,14 @@
 package ar.edu.unlu.integrador.vista;
 
-import ar.edu.unlu.integrador.Partida;
+import ar.edu.unlu.integrador.Serializacion;
+import ar.edu.unlu.integrador.TopJugadores;
 import ar.edu.unlu.integrador.controlador.ControladorPartida;
 import ar.edu.unlu.integrador.exceptions.JugadoresLleno;
 import ar.edu.unlu.integrador.modelo.Dado;
 import ar.edu.unlu.integrador.modelo.DadoColores;
 import ar.edu.unlu.integrador.modelo.Jugador;
-import ar.edu.unlu.integrador.modelo.Puntaje;
 
 import javax.swing.*;
-import javax.swing.border.AbstractBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,9 +37,12 @@ public class VistaPartida implements IVistaPartida {
     private JLabel dado2;
     private JLabel dado3;
     private JLabel dadoBlanco;
+    private JButton puntajeButton;
     private ControladorPartida partida;
     private final JFrame frame;
     private boolean tirado = false;
+
+    private TopJugadores topJugadores;
 
     private DefaultListModel<String> listModel;
 
@@ -56,8 +58,11 @@ public class VistaPartida implements IVistaPartida {
 
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panelPrincipal);
+        topJugadores = Serializacion.obtenerTop();
+        System.out.println("prueba " + topJugadores.get(0).getPuntaje().getTotalPuntos());
 
         listModel = new DefaultListModel<>();
+        listModel2 = new DefaultListModel<>();
         list2.setModel(listModel);
         list1.setModel(listModel2);
 
@@ -111,6 +116,13 @@ public class VistaPartida implements IVistaPartida {
                     JOptionPane.showMessageDialog(null, "error");
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        puntajeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    mostrarTop5();
+
             }
         });
     }
@@ -191,8 +203,8 @@ public class VistaPartida implements IVistaPartida {
         dado2.setText(Integer.toString(dados[1].getNumeroActual()));
         dado3.setText(Integer.toString(dados[2].getNumeroActual()));
         dado4.setText(Integer.toString(dados[3].getNumeroActual()));
-        dado5.setText(Integer.toString(dados[4].getNumeroActual()));
         dado6.setText(Integer.toString(dados[5].getNumeroActual()));
+        dado5.setText(Integer.toString(dados[4].getNumeroActual()));
 
 
         dado1.setBackground(dados[0].getColorActual());
@@ -222,6 +234,14 @@ public class VistaPartida implements IVistaPartida {
 
     }
 
+
+    @Override
+    public void actualizarTop5(Jugador jugador) {
+        topJugadores.agregarJugadores(jugador);
+        mostrarTop5();
+        Serializacion.guardarTop(topJugadores);
+    }
+
     @Override
     public void mostrar() {
         frame.setSize(new Dimension(800, 450));
@@ -243,10 +263,10 @@ public class VistaPartida implements IVistaPartida {
     }
 
     @Override
-    public void mostrarTop5()  {
+    public void mostrarTop5() {
         listModel2.clear();
 
-        listModel2.addElement("NOMBRE JUGADOR: "  );
+        listModel2.addElement(topJugadores.getJugadores() );
 
         // listModel.addElement("Azul : " + Arrays.toString(partida.devolverPuntaje().getPuntosAzul()));
 
